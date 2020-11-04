@@ -3,35 +3,146 @@ import './App.css';
 // import TextClass from './TextClass'
 // import Text from './text'
 // import Greeting from './Greeting'
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 // import React, { useState } from 'react'
+import Input from './Input'
+import Output from './Output'
+import Submit from './Submit'
+import Age from './Age'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 0
+  state = {
+    name: '',
+    age: ''
+  }
+
+  changeNameHandler = (event) => {
+    console.log(event)
+    this.setState(
+      { name: event.target.value }
+    )
+  }
+
+  changeAge = (event) => {
+    this.setState(
+      { age: event.target.value }
+    )
+  }
+
+  checkSubmit = (event) => {
+    if (this.state.name === '' || this.state.age === '') {
+      alert('Please Input Both of Your Name and Age')
+    } else if (isNaN(this.state.age)) {
+      alert('Age Must be in Number Only')
+    } else {
+      alert('Welcome ' + this.state.name + ' ' + this.state.age);
     }
   }
 
-  IncrementItem = () => {
-    this.setState({ counter: this.state.counter + 1 });
-  }
-  DecreamentItem = () => {
-    this.setState({ counter: this.state.counter - 1 });
-  }
-
-
   render() {
     return (
-      <div className="App">
-        <button onClick={this.DecreamentItem}>-</button>  <input className="InputNumber" value={this.state.counter} />   <button onClick={this.IncrementItem}>+</button>
+      <div className='main'>
+        <h1>Hello Gaes...</h1> <hr />
+        <Input name={this.state.name} changeName={this.changeNameHandler} /> <br /><br />
+        <Age age={this.state.age} changeAge={this.changeAge} /> <br />
+        <Output name={this.state.name} age={this.state.age} /> <br />
+        <Submit checkSubmit={this.checkSubmit} />
       </div>
     );
   }
 }
 
 export default App;
+
+
+// class App extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//     this.input = React.createRef();
+//   }
+
+//   handleSubmit(event) {
+//     alert('A name was submitted: ' + this.input.current.value);
+//     event.preventDefault();
+//   }
+
+//   render() {
+//     return (
+//       <form onSubmit={this.handleSubmit}>
+//         Name:<input type="text" ref={this.input} />
+//         <button onSubmit={this.handleSubmit}>Submit</button>
+//       </form>
+//     );
+//   }
+// }
+
+// export default App;
+
+// class App extends Component {
+//   inputSubmit = () => {
+//     alert('Your Name Was Submitted: ' + this.state.input)
+//   }
+
+//   state = {
+//     name: <input type="text" />,
+//     submit: <button onClick={this.inputSubmit}>Submit</button>
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <Greeting name={this.state.name} submit={this.state.submit} />
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+// class App extends Component {
+//   state = {
+//     title: 'Welcome',
+//     desc: 'to this page made by',
+//     author: 'Dewi'
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <Greeting title={this.state.title} desc={this.state.desc} author={this.state.author}></Greeting>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App;
+
+
+// class App extends Component {
+//   state = {
+//     counter: 0
+//   }
+
+
+//   IncrementItem = () => {
+//     this.setState({ counter: this.state.counter + 1 });
+//   }
+//   DecreamentItem = () => {
+//     this.setState({ counter: this.state.counter - 1 });
+//   }
+
+//   render() {
+//     return (
+//       <div className="App">
+//         <button onClick={this.DecreamentItem}>-</button>
+//         <input className="InputNumber" value={this.state.counter} />
+//         <button onClick={this.IncrementItem}>+</button>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
 
 
 // class App extends Component {

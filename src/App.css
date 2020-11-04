@@ -55,7 +55,36 @@ p {
   width: 50px;
 }
 
+*{
+  background-color: rgb(205, 240, 240);
+}
+
+hr{
+  border-width: 2px;
+  border-color: rgb(139, 77, 77);
+}
+
 button{
-  background-color: rgb(32, 17, 99);
-  color: aliceblue;
+  background-color: rgb(151, 161, 7);
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  padding: 8px;
+}
+
+.main {
+  margin-top: 50px;
+  text-align: center;
+}
+
+span {
+  color: #660606;
+  font-weight: bolder;
+}
+
+input{
+  border-color: darkgreen;
+}
+
+label {
+  font-weight: bolder;
 }
